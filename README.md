@@ -31,44 +31,67 @@
 git clone https://github.com/tuusuario/kursio.git
 cd kursio
 
-2. 📥 Ejecuta el programa:
+### 2. 🐍 Ejecutar el programa
+
+Asegurate de tener Python 3 instalado. Luego ejecutá el archivo principal con:
 
 python main.py
 
-Estructura de datos:
-
-kursio/
-├── main.py             # Menú principal e interacción con el usuario
-├── db.py               # Gestión de la base de datos SQLite
-├── materias.py         # Lógica de materias y validaciones
-├── utils.py            # Funciones auxiliares
-└── README.md
+---
 
 ## 💡 Ideas futuras
 
 A continuación, algunas mejoras planificadas o sugeridas para futuras versiones de **Kursio**:
 
 ### 🎨 Interfaz gráfica
+
 - [ ] Agregar una interfaz con **Tkinter** o **PyQt**
 - [ ] Permitir interacción más visual e intuitiva
 - [ ] Diseño adaptable para escritorio
 
 ### 📁 Manejo de datos
+
 - [ ] Exportar datos en **CSV** o **JSON**
 - [ ] Importar datos desde archivos externos
 - [ ] Backup automático de la base de datos
 
 ### 🎓 Seguimiento académico
+
 - [ ] Agregar vista de **plan de carrera completo**
 - [ ] Filtrar materias por cuatrimestre, año o estado
 - [ ] Mostrar estadísticas (materias aprobadas, promedio, etc.)
 
 ### 🌐 Web / Conectividad
+
 - [ ] Crear una versión web con **Flask** o **FastAPI**
 - [ ] Permitir login de múltiples usuarios
 - [ ] Sincronizar datos con la nube (opcional)
 
 ### 🛠️ Personalización y mejoras
+
 - [ ] Soporte para materias optativas
 - [ ] Personalizar estados (Ej: “En curso”, “Postergada”)
 - [ ] Tema oscuro / claro en interfaz gráfica
+
+## 🤝 Contribuciones
+
+¡Las contribuciones son bienvenidas!
+
+Si querés sumar mejoras, nuevas funcionalidades o reportar errores:
+
+- Abrí un **issue**
+- Hacé un **pull request**
+- O dejá una ⭐ si te gustó el proyecto
+
+---
+
+## 📬 Contacto
+
+Desarrollado con 💙 por [Suporte](https://github.com/UleashedBeast)
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**.  
+Podés usarlo, modificarlo y compartirlo libremente.
