@@ -28,7 +28,6 @@
 
 1. 📥 Cloná el repositorio:
 
-```bash
 git clone https://github.com/tuusuario/kursio.git
 cd kursio
 
@@ -45,14 +44,31 @@ kursio/
 ├── utils.py            # Funciones auxiliares
 └── README.md
 
-💡 Ideas futuras
+## 💡 Ideas futuras
 
-🖼️ Interfaz gráfica con Tkinter o PyQt
+A continuación, algunas mejoras planificadas o sugeridas para futuras versiones de **Kursio**:
 
-📤 Exportar e importar datos en formato CSV/JSON
+### 🎨 Interfaz gráfica
+- [ ] Agregar una interfaz con **Tkinter** o **PyQt**
+- [ ] Permitir interacción más visual e intuitiva
+- [ ] Diseño adaptable para escritorio
 
-🧭 Modo "Plan de Carrera"
+### 📁 Manejo de datos
+- [ ] Exportar datos en **CSV** o **JSON**
+- [ ] Importar datos desde archivos externos
+- [ ] Backup automático de la base de datos
 
-🗓️ Seguimiento por cuatrimestre/año
+### 🎓 Seguimiento académico
+- [ ] Agregar vista de **plan de carrera completo**
+- [ ] Filtrar materias por cuatrimestre, año o estado
+- [ ] Mostrar estadísticas (materias aprobadas, promedio, etc.)
 
-🌐 Versión web con Flask o FastAPI
+### 🌐 Web / Conectividad
+- [ ] Crear una versión web con **Flask** o **FastAPI**
+- [ ] Permitir login de múltiples usuarios
+- [ ] Sincronizar datos con la nube (opcional)
+
+### 🛠️ Personalización y mejoras
+- [ ] Soporte para materias optativas
+- [ ] Personalizar estados (Ej: “En curso”, “Postergada”)
+- [ ] Tema oscuro / claro en interfaz gráfica
