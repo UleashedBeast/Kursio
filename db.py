@@ -1,4 +1,3 @@
-# db.py
 import sqlite3
 
 def conectar():
@@ -8,9 +7,11 @@ def inicializar_db():
     conn = conectar()
     cursor = conn.cursor()
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS usuarios (
+    CREATE TABLE IF NOT EXISTS perfiles (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nombre TEXT UNIQUE NOT NULL
+        nombre TEXT UNIQUE NOT NULL,
+        carrera TEXT,
+        anio_inicio INTEGER
     )
     """)
     conn.commit()
