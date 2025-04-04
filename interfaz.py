@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
-from perfiles import obtener_perfiles, crear_perfil
-import os
+from perfiles import obtener_perfiles, crear_perfil, perfil_incompleto, eliminar_perfil
 from guia_inicial import mostrar_guia
+from dashboard import mostrar_dashboard
+import os
 
 # 🎨 Paleta de colores personalizada
 COLORES = {
@@ -16,8 +17,12 @@ COLORES = {
 
 def lanzar_selector_perfil():
     def seleccionar_perfil(nombre):
-        messagebox.showinfo("Perfil seleccionado", f"🎉 Bienvenido, {nombre}")
-        # Aquí se cargaría la pantalla principal del sistema
+        ventana.destroy()
+        if perfil_incompleto(nombre):
+            messagebox.showinfo("🔄 Completar perfil", f"Faltan datos en el perfil '{nombre}'. Vamos a completarlos.")
+            mostrar_guia(nombre)
+        else:
+            mostrar_dashboard(nombre)
 
     def mostrar_creador_perfil():
         for widget in contenedor.winfo_children():
@@ -49,6 +54,12 @@ def lanzar_selector_perfil():
                   bg=COLORES["fondo"], fg=COLORES["texto"],
                   relief="flat").pack(pady=5)
 
+    def confirmar_eliminacion(nombre):
+        if messagebox.askyesno("Eliminar perfil", f"¿Estás seguro de que querés borrar el perfil '{nombre}'? Esta acción no se puede deshacer."):
+            eliminar_perfil(nombre)
+            messagebox.showinfo("Perfil eliminado", f"🗑️ Perfil '{nombre}' eliminado.")
+            construir_lista_perfiles()
+
     def construir_lista_perfiles():
         for widget in contenedor.winfo_children():
             widget.destroy()
@@ -64,7 +75,7 @@ def lanzar_selector_perfil():
 
         nombres = [perfil[1] for perfil in perfiles]
         seleccion = tk.StringVar()
-        seleccion.set(nombres[0])  # Por defecto, el primero
+        seleccion.set(nombres[0])
 
         menu = tk.OptionMenu(contenedor, seleccion, *nombres)
         menu.config(font=("Helvetica", 12),
@@ -75,7 +86,13 @@ def lanzar_selector_perfil():
                   command=lambda: seleccionar_perfil(seleccion.get()),
                   font=("Helvetica", 12),
                   bg=COLORES["boton"], fg=COLORES["boton_texto"],
-                  width=15).pack(pady=10)
+                  width=15).pack(pady=5)
+
+        tk.Button(contenedor, text="🗑️ Eliminar perfil",
+                  command=lambda: confirmar_eliminacion(seleccion.get()),
+                  font=("Helvetica", 11),
+                  bg="#FF5C5C", fg="white",
+                  width=15).pack(pady=5)
 
         tk.Button(contenedor, text="Crear nuevo perfil",
                   command=mostrar_creador_perfil,
@@ -83,14 +100,14 @@ def lanzar_selector_perfil():
                   bg=COLORES["acento"], fg=COLORES["texto"],
                   relief="flat").pack(pady=20)
 
-    # Ventana principal
+    # 🪟 Ventana principal
     ventana = tk.Tk()
     ventana.title("Kursio - Selección de perfil")
     ventana.geometry("800x600")
     ventana.resizable(False, False)
     ventana.configure(bg=COLORES["fondo"])
 
-    # Icono personalizado
+    # Icono si existe
     icono_path = os.path.join(os.path.dirname(__file__), "icono.ico")
     if os.path.exists(icono_path):
         ventana.iconbitmap(icono_path)

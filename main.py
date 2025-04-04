@@ -1,6 +1,9 @@
-from db import inicializar_db
+from db import inicializar_db, crear_tabla_materias, asegurar_columna_cursada
 from interfaz import lanzar_selector_perfil
+from db import crear_tabla_eventos
 
-if __name__ == "__main__":
-    inicializar_db()
-    lanzar_selector_perfil()
+inicializar_db()
+crear_tabla_materias()
+asegurar_columna_cursada()
+lanzar_selector_perfil()
+crear_tabla_eventos()
